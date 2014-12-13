@@ -18,14 +18,14 @@ import (
 ```
 
 ## Usage
-# Create goJson parser and handling errors
+#### Create goJson parser and handling errors
 ```go
 parser, err := goJson.ParseJson([]byte(jsonString))
 if err != nil {
 	panic(fmt.Sprintf("JSON error: %v", err))
 }
 ```
-# Read values
+#### Read values
 ```go
 intValue 	 := js.Int("jsonInteger")  // e.g. 2
 floatValue 	 := js.Float("jsonFloat")  // e.g. 2.24
