@@ -33,7 +33,7 @@ func (r *Root) GetAll(Name string) ([]*Root, error) {
 	currentItem := r.Val.(map[string]interface{})[Name]
 	result := []*Root{}
 	if reflect.TypeOf(currentItem) != map[string]interface{} {
-            return nil, errors.New(name+" is not array!")
+            return nil, errors.New(Name+" is not array!")
         }
 	items := currentItem.([]interface{})
 	for _, elem := range items {
