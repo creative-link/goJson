@@ -29,16 +29,19 @@ func (r *Root) Get(Name string) *Root {
 	return root
 }
 
-func (r *Root) GetAll(Name string) []*Root {
+func (r *Root) GetAll(Name string) ([]*Root, error) {
 	currentItem := r.Val.(map[string]interface{})[Name]
 	result := []*Root{}
+	if reflect.TypeOf(currentItem) != "map[string]interface {}" {
+            return nil, errors.New(name+" is not array!")
+        }
 	items := currentItem.([]interface{})
 	for _, elem := range items {
 		root := new(Root)
 		root.Val = elem
 		result = append(result, root)
 	}
-	return result
+	return result, nil
 }
 
 func (r *Root) String(Name string) string {
