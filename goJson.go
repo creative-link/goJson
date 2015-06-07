@@ -6,6 +6,7 @@ package goJson
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"reflect"
 )
 
