@@ -32,7 +32,7 @@ func (r *Root) Get(Name string) *Root {
 func (r *Root) GetAll(Name string) ([]*Root, error) {
 	currentItem := r.Val.(map[string]interface{})[Name]
 	result := []*Root{}
-	if reflect.TypeOf(currentItem) != map[string]interface{} {
+	if reflect.ValueOf(currentItem).Kind() == reflect.Map {
             return nil, errors.New(Name+" is not array!")
         }
 	items := currentItem.([]interface{})
